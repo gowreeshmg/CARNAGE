@@ -2,7 +2,11 @@
    CARNAGE — Main Application Script v3
    Cinematic Hero | Image Showcase | 3D Tilt Cards
    AI Category Section | No Emojis
-   ════════════════════════════════════════�const CARS = [
+   ═══════════════════════════════════════════════════ */
+
+// CAR DATA (7 cars)
+// ─────────────────────────────────────────────────────
+const CARS = [
   {
     id: 'tesla-model-y', name: 'Tesla Model Y', index: '01 / 07',
     tagline: 'Full Self-Driving Neural Network',
