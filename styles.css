@@ -768,61 +768,100 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
     height: 30px;
     transform: scale(2.5) translateX(5px);
   }
-  .nav-links {
-    display: none;
-  }
+  .nav-links { display: none; }
   
   .car-hud {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0;
-    gap: 0;
-    pointer-events: none; /* Let the snap scroll work on background */
-    overflow: hidden; /* Ensure no full-page HUD scrolling */
-  }
-  
-  .hud-left {
-    margin-top: auto; /* Push everything to the bottom half */
-    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content 1fr;
+    padding: 40vh 15px 15px 15px; /* Leave top 40vh for car image */
+    gap: 8px 10px; /* row, col */
+    height: 100vh;
+    box-sizing: border-box;
     pointer-events: none;
+    overflow: hidden;
   }
   
-  .hud-right {
-    height: auto;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 10px 20px 20px 20px;
-    pointer-events: none;
-  }
-  
-  .ai-algo-panel, .sensor-panel {
-    width: 100%;
-    max-width: 100%;
-    pointer-events: auto; /* Enable clicks on panels */
-    display: flex;
-    flex-direction: column;
-    max-height: 40vh; /* Prevent panels from taking over screen */
+  .hud-left, .hud-right {
+    display: contents; /* Unpack panels to become direct grid children */
   }
 
-  .algo-list, .sensor-grid {
-    overflow-y: auto; /* Scroll inside the panel if content is too long */
-    padding-right: 5px;
+  .car-index {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin: 0;
   }
   
   .car-name {
+    grid-column: 1 / -1;
+    grid-row: 2;
     font-size: clamp(2rem, 8vw, 3rem);
     pointer-events: auto;
+    margin: 0 0 5px 0;
+    line-height: 1;
   }
   
-  .car-specs {
-    display: none !important; /* Hide range, autonomy, compute on phone */
+  .car-tagline { display: none !important; }
+  .car-specs { display: none !important; }
+
+  .ai-algo-panel {
+    grid-column: 1;
+    grid-row: 3;
   }
   
+  .sensor-panel {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  /* Force side-by-side panels to be open and perfectly fit remaining space */
+  .ai-algo-panel, .sensor-panel {
+    pointer-events: auto;
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    padding: 12px 10px;
+    opacity: 1 !important; 
+    transform: none !important;
+  }
+  
+  /* Hide chevrons and adjust headers */
+  .chevron-icon { display: none !important; }
+  .ai-algo-header, .sensor-panel-title {
+    margin-bottom: 8px !important;
+    padding-bottom: 6px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    align-items: flex-start;
+  }
+  .ai-algo-header-title, .sensor-panel-title { font-size: 0.55rem; }
+  .ai-processor-badge { display: none; } /* Hide to save space in narrow col */
+
+  /* Allow internal scrolling */
+  .algo-list, .sensor-grid {
+    display: flex !important; /* Override collapsed state */
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+    gap: 6px;
+  }
+  
+  /* Make sensor grid a column to match left side */
+  .sensor-grid { flex-direction: column; }
+
+  .algo-name { font-size: 0.75rem; margin-bottom: 2px; }
+  .algo-desc { font-size: 0.6rem; line-height: 1.35; }
+
+  /* Perfectly frame the car image above the text */
   .car-img-main {
-    height: 55vh; /* Force car to top half of screen exactly */
-    object-fit: cover; /* Crop perfectly */
-    object-position: center;
-    transform: none; /* Remove scaling */
+    height: 40vh;
+    width: 100%;
+    object-fit: contain; /* Fit the entire width of the car without zooming */
+    object-position: bottom center; /* Anchor just above the text */
+    transform: none;
+    margin-top: 55px; /* Clear navbar */
   }
 }
