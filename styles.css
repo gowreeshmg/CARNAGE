@@ -773,8 +773,8 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
   .car-hud {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content min-content 1fr;
-    padding: 38vh 15px 15px 15px; /* Leave space for car image, overlapping slightly */
+    grid-template-rows: min-content min-content min-content 1fr;
+    padding: 34vh 15px 15px 15px; /* Overlap image significantly so name is inside bottom of image */
     gap: 8px 10px; /* row, col */
     height: 100vh;
     box-sizing: border-box;
@@ -799,19 +799,39 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
     pointer-events: auto;
     margin: 0 0 5px 0;
     line-height: 1;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.8); /* Ensure text is readable over car image */
   }
   
   .car-tagline { display: none !important; }
-  .car-specs { display: none !important; }
+  
+  .car-specs { 
+    display: grid !important; /* Bring back specs */
+    grid-template-columns: 1fr 1fr; /* 2x2 grid */
+    grid-column: 1 / -1;
+    grid-row: 3;
+    gap: 5px 10px;
+    margin-bottom: 5px;
+    pointer-events: auto;
+  }
+  
+  /* Make specs tighter for mobile */
+  .spec-row {
+    margin: 0;
+    padding: 6px 10px;
+    max-width: none;
+    border-radius: 8px;
+  }
+  .spec-label { font-size: 0.5rem; margin: 0; }
+  .spec-value { font-size: 0.8rem; margin: 0; }
 
   .ai-algo-panel {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 4;
   }
   
   .sensor-panel {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
   }
 
   /* Force side-by-side panels to be open and perfectly fit remaining space */
@@ -857,7 +877,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
 
   /* Perfectly frame the car image above the text */
   .car-img-main {
-    height: 40vh;
+    height: 48vh; /* Give car more height so it overlaps deeply with the name/specs */
     width: 100%;
     object-fit: cover; /* Fill the top area completely without black space */
     object-position: center; /* Center the car */
