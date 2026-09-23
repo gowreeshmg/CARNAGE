@@ -816,11 +816,13 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
   }
   
   .car-specs {
-    pointer-events: auto;
+    display: none !important; /* Hide range, autonomy, compute on phone */
   }
   
   .car-img-main {
-    object-position: center 30%; /* Shift car up so bottom HUD doesn't cover it */
-    transform: scale(1.1) translateY(-20px);
+    height: 55vh; /* Force car to top half of screen exactly */
+    object-fit: cover; /* Crop perfectly */
+    object-position: center;
+    transform: none; /* Remove scaling */
   }
 }
