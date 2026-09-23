@@ -430,6 +430,24 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-main);
 .sensor-panel:not(.collapsed) .chevron-icon { transform: rotate(180deg); }
 .collapsed .algo-list, .collapsed .sensor-grid { display: none; }
 
+/* Desktop-only collapsed island logic */
+@media (min-width: 901px) {
+  .ai-algo-panel, .sensor-panel {
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s 0.2s ease, opacity 0.5s 0.2s ease, padding 0.4s ease, background 0.3s;
+    overflow: hidden;
+  }
+  .ai-algo-panel.collapsed, .sensor-panel.collapsed {
+    width: 185px; /* exactly wide enough for text + chevron */
+    padding: 12px 18px; /* tighter padding when collapsed */
+  }
+  .collapsed .ai-processor-badge {
+    display: none; /* hide processor badge to keep it narrow */
+  }
+  .algo-list, .sensor-grid {
+    width: 340px; /* prevent text wrapping during width animation */
+  }
+}
+
 .sensor-grid { display: flex; flex-direction: column; gap: 6px; }
 
 /* Radar */
