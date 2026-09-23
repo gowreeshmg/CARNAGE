@@ -657,16 +657,10 @@ function initAccordions() {
       const otherPanel = document.getElementById('sensorPanel');
       panel.classList.toggle('collapsed');
       
-      // Mutually exclusive: if left is opened, close right
-      if (!panel.classList.contains('collapsed')) {
-        otherPanel.classList.add('collapsed');
-      }
-
       if (currentCarIdx >= 0) {
         const id = CARS[currentCarIdx].id;
         if (!accordionStates[id]) accordionStates[id] = {};
         accordionStates[id].leftOpen = !panel.classList.contains('collapsed');
-        accordionStates[id].rightOpen = !otherPanel.classList.contains('collapsed');
       }
     });
   }
@@ -676,16 +670,10 @@ function initAccordions() {
       const otherPanel = document.getElementById('aiAlgoPanel');
       panel.classList.toggle('collapsed');
       
-      // Mutually exclusive: if right is opened, close left
-      if (!panel.classList.contains('collapsed')) {
-        otherPanel.classList.add('collapsed');
-      }
-
       if (currentCarIdx >= 0) {
         const id = CARS[currentCarIdx].id;
         if (!accordionStates[id]) accordionStates[id] = {};
         accordionStates[id].rightOpen = !panel.classList.contains('collapsed');
-        accordionStates[id].leftOpen = !otherPanel.classList.contains('collapsed');
       }
     });
   }

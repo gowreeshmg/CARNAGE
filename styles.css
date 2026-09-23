@@ -853,7 +853,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
   /* Hide chevrons and adjust headers */
   .chevron-icon { display: none !important; }
   .ai-algo-header, .sensor-panel-title {
-    margin-bottom: 8px !important;
+    margin-bottom: 12px !important; /* Added more space before the features */
     padding-bottom: 6px !important;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     align-items: flex-start;
