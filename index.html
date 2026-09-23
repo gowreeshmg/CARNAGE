@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#030309" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>CARNAGE — AI-Powered Cars</title>
+  <meta name="description" content="Seven extraordinary AI-powered machines. BYD, BMW, Range Rover, Tesla and MG redefining mobility through neural networks and autonomous algorithms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="assets/carnage-logo.jpg" alt="CARNAGE" class="loader-logo-img" />
+      <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+      <div class="loader-label" id="loaderLabel">Initializing Neural Engine</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo-link">
+      <img src="assets/carnage-logo.jpg" alt="CARNAGE" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#cars">Fleet</a></li>
+      <li><a href="#ai-categories">AI Types</a></li>
+      <li><a href="#tech">Technology</a></li>
+    </ul>
+    <button class="nav-cta" id="navCTA">Explore Fleet</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════
+       HERO
+  ═══════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg" style="background-image:url('assets/hero-bg.jpg')"></div>
+    <div class="hero-bg-overlay"></div>
+    <canvas id="heroCanvas"></canvas>
+
+    <div class="hero-overlay">
+      <div class="hero-tag">AI-POWERED DRIVING</div>
+      <h1 class="hero-title">
+        The Future<br/>
+        <span class="hero-title-accent">Drives Itself</span>
+      </h1>
+      <p class="hero-sub">
+        Seven extraordinary machines. One shared intelligence.<br/>
+        Neural algorithms that see, think, and react faster than human.
+      </p>
+      <div class="hero-cta-group">
+        <button class="btn-primary" id="exploreBtn">Explore Fleet</button>
+        <button class="btn-ghost">Learn More</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-target="7">0</span><span class="stat-unit">Cars</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num" data-target="700">0</span><span class="stat-unit">km Range Max</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num" data-target="288">0</span><span class="stat-unit">TOPS Compute</span></div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+      <span>SCROLL TO EXPLORE</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       CAR SHOWCASE (Scroll-driven)
+  ═══════════════════════════════════ -->
+  <section id="cars">
+    <div id="stickyShowcase">
+
+      <!-- Car image slides -->
+      <div class="car-stage" id="carStage">
+
+        <div class="car-slide active" data-index="0">
+          <div class="car-img-bg" style="background-image:url('assets/BYD%20Sealion%20.png');"></div>
+          <img class="car-img-main" src="assets/BYD%20Sealion%20.png" alt="BYD Sealion" />
+          <div class="car-img-overlay"></div>
+        </div>
+
+        <div class="car-slide" data-index="1">
+          <div class="car-img-bg" style="background-image:url('assets/BYD%20Seal%20.png');"></div>
+          <img class="car-img-main" src="assets/BYD%20Seal%20.png" alt="BYD Seal" />
+          <div class="car-img-overlay"></div>
+        </div>
+
+        <div class="car-slide" data-index="2">
+          <div class="car-img-bg" style="background-image:url('assets/BYD%20eMAX%207%20.png');"></div>
+          <img class="car-img-main" src="assets/BYD%20eMAX%207%20.png" alt="BYD eMAX 7" />
+          <div class="car-img-overlay"></div>
+        </div>
+
+        <div class="car-slide" data-index="3">
+          <div class="car-img-bg" style="background-image:url('assets/BMW%20X7.png');"></div>
+          <img class="car-img-main" src="assets/BMW%20X7.png" alt="BMW X7" />
+          <div class="car-img-overlay"></div>
+        </div>
+
+        <div class="car-slide" data-index="4">
+          <div class="car-img-bg" style="background-image:url('assets/Range%20Rover%20Velar.png');"></div>
+          <img class="car-img-main" src="assets/Range%20Rover%20Velar.png" alt="Range Rover Velar" />
+          <div class="car-img-overlay"></div>
+        </div>
+
+        <div class="car-slide" data-index="5">
+          <div class="car-img-bg" style="background-image:url('assets/Tesla%20Model%20Y%20.png');"></div>
+          <img class="car-img-main" src="assets/Tesla%20Model%20Y%20.png" alt="Tesla Model Y" />
+          <div class="car-img-overlay"></div>
+        </div>
+
+        <div class="car-slide" data-index="6">
+          <div class="car-img-bg" style="background-image:url('assets/MG%20Cyberster%20.png');"></div>
+          <img class="car-img-main" src="assets/MG%20Cyberster%20.png" alt="MG Cyberster" />
+          <div class="car-img-overlay"></div>
+        </div>
+
+      </div>
+
+      <div class="scan-lines"></div>
+
+      <!-- HUD -->
+      <div class="car-hud">
+
+        <!-- LEFT -->
+        <div class="hud-left">
+          <div class="car-index" id="carIndex">01 / 07</div>
+          <h2 class="car-name" id="carName">BYD Sealion</h2>
+          <div class="car-tagline" id="carTagline">The Intelligent Electric SUV</div>
+
+          <div class="car-specs" id="carSpecs">
+            <div class="spec-row"><span class="spec-label">Range</span><span class="spec-val" id="specRange">500 km</span></div>
+            <div class="spec-row"><span class="spec-label">0–100 km/h</span><span class="spec-val" id="specAccel">4.5 s</span></div>
+            <div class="spec-row"><span class="spec-label">Autonomy</span><span class="spec-val" id="specAI">L2+ ADAS</span></div>
+            <div class="spec-row"><span class="spec-label">Compute</span><span class="spec-val" id="specCompute">60 TOPS</span></div>
+          </div>
+
+          <!-- AI Algorithm panel -->
+          <div class="ai-algo-panel collapsed" id="aiAlgoPanel">
+            <div class="ai-algo-header" id="aiAlgoHeader" style="cursor: pointer; margin-bottom: 0;">
+              <div>
+                <span class="ai-algo-header-title">AI FEATURES</span>
+                <span class="ai-processor-badge" id="processorBadge">DiPilot 300</span>
+              </div>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: var(--cyan-bright);"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="algo-list" id="algoList"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="hud-right">
+          <div class="sensor-panel collapsed" id="sensorPanel">
+            <div class="sensor-panel-title" id="sensorPanelTitle" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; margin-bottom: 0; padding-bottom: 0;">
+              <span>AI ALGORITHMS</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: var(--cyan-bright);"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="sensor-grid" id="sensorGrid"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Feature strips (bottom) -->
+      <div class="feature-strips" id="featureStrips">
+        <div class="feature-strip" id="fs1"><span class="fs-name">—</span><span class="fs-desc">—</span></div>
+        <div class="feature-strip" id="fs2"><span class="fs-name">—</span><span class="fs-desc">—</span></div>
+        <div class="feature-strip" id="fs3"><span class="fs-name">—</span><span class="fs-desc">—</span></div>
+      </div>
+
+      <!-- Progress -->
+      <div class="car-progress" id="carProgress"></div>
+    </div>
+
+    <div id="scrollSpacer"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       AI LEARNING CATEGORIES
+  ═══════════════════════════════════ -->
+  <section id="ai-categories">
+    <div class="aicats-bg"></div>
+    <div class="container">
+      <div class="section-label">MACHINE LEARNING PARADIGMS</div>
+      <h2 class="section-title">How Cars Learn<br/><span class="accent">to Drive</span></h2>
+      <p class="section-sub">Every autonomous system is trained using one or more learning paradigms. Here is how each car in our fleet maps to the core AI training methodologies.</p>
+
+      <div class="tilt-grid">
+
+        <div class="tilt-card" id="tc-supervised">
+          <div class="tilt-card-inner">
+            <div class="tc-accent-line"></div>
+            <div class="tc-category">Supervised Learning</div>
+            <p class="tc-desc">Models trained on millions of human-labeled images and sensor data. The algorithm learns to map inputs to correct outputs by minimising prediction error on labelled examples.</p>
+            <div class="tc-cars">
+              <div class="tc-car-row"><span class="tc-car-name">BYD Sealion</span><span class="tc-car-algo">YOLO v8 Object Detection</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BMW X7</span><span class="tc-car-algo">Gesture Recognition CNN</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">MG Cyberster</span><span class="tc-car-algo">AR HUD Projection Engine</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BYD eMAX 7</span><span class="tc-car-algo">Occupant Safety Classifier</span></div>
+            </div>
+            <div class="tc-tag">PERCEPTION</div>
+          </div>
+        </div>
+
+        <div class="tilt-card" id="tc-rl">
+          <div class="tilt-card-inner">
+            <div class="tc-accent-line" style="--line-color:#06b6d4"></div>
+            <div class="tc-category" style="color:#06b6d4">Reinforcement Learning</div>
+            <p class="tc-desc">Agents explore actions in simulation, receiving reward signals for safe, efficient decisions. Billions of simulated miles teach the AI to handle edge cases no human could label.</p>
+            <div class="tc-cars">
+              <div class="tc-car-row"><span class="tc-car-name">Tesla Model Y</span><span class="tc-car-algo">FSD Neural Planner</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BYD Seal</span><span class="tc-car-algo">Velocity-Aware Planner</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">Range Rover Velar</span><span class="tc-algo">Terrain Response 3</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BMW X7</span><span class="tc-car-algo">Predictive Route AI</span></div>
+            </div>
+            <div class="tc-tag" style="color:#06b6d4; border-color:rgba(6,182,212,0.3)">PLANNING</div>
+          </div>
+        </div>
+
+        <div class="tilt-card" id="tc-semisup">
+          <div class="tilt-card-inner">
+            <div class="tc-accent-line" style="--line-color:#f59e0b"></div>
+            <div class="tc-category" style="color:#f59e0b">Semi-Supervised</div>
+            <p class="tc-desc">A small set of labelled data combined with a large pool of unlabelled sensor data. Ideal for rare scenarios like off-road terrain or interior occupancy, where full labelling is impractical.</p>
+            <div class="tc-cars">
+              <div class="tc-car-row"><span class="tc-car-name">Range Rover Velar</span><span class="tc-car-algo">ClearSight Ground View</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BYD eMAX 7</span><span class="tc-car-algo">Child Occupant Monitor</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">MG Cyberster</span><span class="tc-car-algo">Adaptive Chassis AI</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BYD Sealion</span><span class="tc-car-algo">Low-light Lane Detection</span></div>
+            </div>
+            <div class="tc-tag" style="color:#f59e0b; border-color:rgba(245,158,11,0.3)">FUSION</div>
+          </div>
+        </div>
+
+        <div class="tilt-card" id="tc-selfsup">
+          <div class="tilt-card-inner">
+            <div class="tc-accent-line" style="--line-color:#a78bfa"></div>
+            <div class="tc-category" style="color:#a78bfa">Self-Supervised</div>
+            <p class="tc-desc">The model generates its own training signal from raw, unlabelled data — predicting future frames, masked regions, or sensor modalities. Enables infinite-scale learning without human annotation.</p>
+            <div class="tc-cars">
+              <div class="tc-car-row"><span class="tc-car-name">Tesla Model Y</span><span class="tc-car-algo">Occupancy Network</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BYD Seal</span><span class="tc-car-algo">EyeQ Shadow Mode</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BMW X7</span><span class="tc-car-algo">REM Fleet Mapping</span></div>
+              <div class="tc-car-row"><span class="tc-car-name">BYD eMAX 7</span><span class="tc-car-algo">Predictive Routing Model</span></div>
+            </div>
+            <div class="tc-tag" style="color:#a78bfa; border-color:rgba(167,139,250,0.3)">WORLD MODEL</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       TECHNOLOGY SECTION
+  ═══════════════════════════════════ -->
+  <section id="tech">
+    <div class="tech-grid-bg"></div>
+    <div class="container">
+      <div class="section-label">THE TECHNOLOGY</div>
+      <h2 class="section-title">Algorithms Behind<br/><span class="accent">The Wheel</span></h2>
+      <div class="tech-cards">
+        <div class="tech-card tilt-card-sm">
+          <h3>Deep Neural Networks</h3>
+          <p>Multi-layer convolutional networks process 60 frames per second, identifying objects with superhuman accuracy using ResNet-50 and YOLO v8 architectures.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-pct="92"></div></div>
+          <span class="tech-pct">92% Detection Accuracy</span>
+        </div>
+        <div class="tech-card tilt-card-sm">
+          <h3>SLAM Navigation</h3>
+          <p>Simultaneous Localization and Mapping builds centimeter-accurate 3D maps in real time. Extended Kalman Filter maintains position even in GPS-denied tunnels and garages.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-pct="87"></div></div>
+          <span class="tech-pct">±2cm Positioning Accuracy</span>
+        </div>
+        <div class="tech-card tilt-card-sm">
+          <h3>Reinforcement Learning</h3>
+          <p>Vehicles train across billions of simulated miles using reward-based RL. Tesla FSD shadow mode continuously learns from 5 million real-world fleet vehicles.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-pct="78"></div></div>
+          <span class="tech-pct">78% Edge Case Handling</span>
+        </div>
+        <div class="tech-card tilt-card-sm">
+          <h3>Sensor Fusion Engine</h3>
+          <p>Kalman filters and Bayesian probabilistic models merge LiDAR, RADAR, ultrasonic and camera streams into one unified world model updated at 100Hz.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-pct="96"></div></div>
+          <span class="tech-pct">96% Fusion Reliability</span>
+        </div>
+        <div class="tech-card tilt-card-sm">
+          <h3>V2X Communication</h3>
+          <p>Vehicle-to-Everything protocols enable sub-10ms communication with traffic infrastructure, other vehicles, and cloud AI systems via 5G-V2X and DSRC.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-pct="71"></div></div>
+          <span class="tech-pct">&lt; 10ms Latency</span>
+        </div>
+        <div class="tech-card tilt-card-sm">
+          <h3>Safety Arbitration</h3>
+          <p>Multi-layer architectures with triple-redundant decision trees trigger AI overrides in microseconds. ISO 26262 ASIL-D certified with formal mathematical safety proofs.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-pct="99"></div></div>
+          <span class="tech-pct">ASIL-D Certified</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════ -->
+  <section id="about">
+    <canvas id="particleCanvas"></canvas>
+    <div class="container about-inner">
+      <div class="about-left">
+        <div class="section-label">ABOUT CARNAGE</div>
+        <h2 class="section-title">Redefining<br/><span class="accent">Intelligent Mobility</span></h2>
+        <p class="about-desc">CARNAGE is a platform dedicated to exploring how artificial intelligence is transforming the automotive industry — from neural network-powered vision systems to fully autonomous decision-making algorithms.</p>
+        <div class="about-badges">
+          <div class="badge">ISO 26262</div>
+          <div class="badge">SAE L3 Ready</div>
+          <div class="badge">UNECE R155</div>
+          <div class="badge">Euro NCAP 2026</div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="glowing-orb"></div>
+        <div class="about-brand-stack">
+          <div class="brand-item">BYD</div>
+          <div class="brand-item">BMW</div>
+          <div class="brand-item">Range Rover</div>
+          <div class="brand-item">Tesla</div>
+          <div class="brand-item">MG</div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <img src="assets/carnage-logo.jpg" alt="CARNAGE" class="footer-logo-img" />
+      <p>© 2026 CARNAGE — Intelligent Automotive Intelligence Platform</p>
+    </footer>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
