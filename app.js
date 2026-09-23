@@ -2,95 +2,9 @@
    CARNAGE — Main Application Script v3
    Cinematic Hero | Image Showcase | 3D Tilt Cards
    AI Category Section | No Emojis
-   ═══════════════════════════════════════════════════ */
-
-'use strict';
-
-// ─────────────────────────────────────────────────────
-// CAR DATA (7 cars — BYD eMAX 7 added)
-// ─────────────────────────────────────────────────────
-const CARS = [  {
-    id: 'byd-sealion', name: 'BYD Sealion', index: '01 / 07',
-    tagline: 'The Intelligent Electric SUV',
-    specs: { range: '610 km', accel: '4.5 s', ai: 'L2 DiPilot', compute: '254 TOPS' },
-    processor: 'NVIDIA DRIVE Orin-X',
-    algorithms: [
-      { name: 'YOLO v8 Object Detection',
-        desc: 'Detects 80+ object classes in real-time at 60fps with 94% mAP; identifies pedestrians, vehicles, cyclists and traffic signs simultaneously.' },
-      { name: "Bird's Eye View Transformer",
-        desc: 'Converts surround-camera feeds into a unified top-down 3D spatial map using attention-based neural transformer blocks.' },
-      { name: 'Lane Centering Network',
-        desc: 'Deep learning model that calculates precise steering angles to maintain lane positioning even on sharp curves or faded road markings.' }
-    ],
-    features: ['Adaptive Cruise Control', 'Automatic Lane Change', 'Intelligent High-Beam'],
-    featureDesc: ['Maintains safe distance and speed dynamically', 'Executes safe lane changes upon driver indicator input', 'Auto-adjusts headlights based on oncoming traffic'],
-  },
+   ════════════════════════════════════════�const CARS = [
   {
-    id: 'byd-seal', name: 'BYD Seal', index: '02 / 07',
-    tagline: 'Aero-Dynamic Sports Sedan',
-    specs: { range: '570 km', accel: '3.8 s', ai: 'L2 DiPilot', compute: '100 TOPS' },
-    processor: "BYD DiPilot (God's Eye C)",
-    algorithms: [
-      { name: 'Kalman Filter Tracking',
-        desc: 'Predicts object trajectories frame-to-frame using state-space estimation; maintains consistent ID across occlusions at 0.3ms latency.' },
-      { name: 'Velocity-Aware Planner',
-        desc: 'Gradient-descent motion planner computes smooth acceleration/braking curves by solving a convex optimisation problem at 50Hz.' },
-      { name: 'EyeQ Shadow Mode',
-        desc: 'Runs silently in the background capturing human driving behavior across the fleet, training the network to handle edge cases without active intervention.' }
-    ],
-    features: ['Autonomous Emergency Braking', 'Intelligent Cruise Control', 'Lane Keep Assist'],
-    featureDesc: ['Radar-fusion system halts vehicle to prevent collision', 'Advanced speed and distance management', 'Actively prevents unintended lane departures'],
-  },
-  {
-    id: 'byd-emax', name: 'BYD eMAX 7', index: '03 / 07',
-    tagline: 'Intelligent Electric Family MPV',
-    specs: { range: '530 km', accel: '8.6 s', ai: 'L2 DiPilot', compute: 'Integrated ADAS' },
-    processor: 'BYD DiPilot System',
-    algorithms: [
-      { name: 'Occupant Safety Classifier',
-        desc: 'Detects the presence and posture of passengers using cabin cameras to optimize airbag deployment and trigger specific safety warnings.' },
-      { name: 'Child Occupant Monitor',
-        desc: 'Interior DMS infrared camera combined with a semi-supervised CNN detects unattended children in the cabin and triggers alerts.' },
-      { name: 'Lane Departure Prevention Network',
-        desc: 'Evaluates lane lines and vehicle trajectory to provide corrective steering torque precisely when unintended drift is detected.' }
-    ],
-    features: ['Predictive Collision Warning', 'Blind Spot Detection', 'Door Open Warning'],
-    featureDesc: ['Alerts driver to potential forward hazards', 'Monitors areas difficult to see via mirrors', 'Alerts occupants if opening a door into traffic is unsafe'],
-  },
-  {
-    id: 'bmw-x7', name: 'BMW X7', index: '04 / 07',
-    tagline: 'Luxury Intelligence Redefined',
-    specs: { range: '800 km', accel: '4.7 s', ai: 'L2+ CoPilot', compute: '~60 TOPS' },
-    processor: 'Snapdragon Digital Chassis',
-    algorithms: [
-      { name: 'Semantic Lane Parsing',
-        desc: 'Fuses multi-camera vision with high-definition map data to maintain highly accurate lane keeping even at high motorway speeds.' },
-      { name: 'Predictive Route AI',
-        desc: 'Analyses driving history, traffic patterns and calendar data using LSTM networks to suggest optimal routes and pre-condition the cabin.' },
-      { name: 'REM Fleet Mapping',
-        desc: 'Road Experience Management: crowdsources centimetre-precision map updates from fleet vehicles via 4G, keeping maps perpetually fresh.' }
-    ],
-    features: ['Motorway Assistant', 'Parking Assistant Pro', 'Reversing Assistant'],
-    featureDesc: ['Hands-free driving on approved highways up to 130 km/h', 'Automated maneuver assistance and path recording', 'Memorizes the last 50 meters and reverses exactly along that path'],
-  },
-  {
-    id: 'range-rover-velar', name: 'Range Rover Velar', index: '05 / 07',
-    tagline: 'Terrain Intelligence Beyond Limits',
-    specs: { range: '640 km', accel: '5.4 s', ai: 'L2 Steering Assist', compute: 'EVA 2.0 Pivi Pro' },
-    processor: 'Qualcomm Snapdragon',
-    algorithms: [
-      { name: 'Terrain Adaptation AI',
-        desc: 'Analyzes wheel slip and suspension deflection to auto-select and tune terrain profiles dynamically.' },
-      { name: 'ClearSight Ground View',
-        desc: 'Stitches front-bumper cameras with a virtual underbody projection to show a live ground-level view through the bonnet on the infotainment screen.' },
-      { name: 'Traffic Flow Prediction',
-        desc: 'Processes real-time cloud data and local camera vision to predict speed limit changes and upcoming traffic patterns.' }
-    ],
-    features: ['3D Surround Camera', 'Traffic Sign Recognition', 'Adaptive Cruise'],
-    featureDesc: ['360-degree view for maneuvering tight spaces', 'Identifies speed limits and adjusts adaptive limiter', 'Maintains safe distance and centers vehicle in lane'],
-  },
-  {
-    id: 'tesla-model-y', name: 'Tesla Model Y', index: '06 / 07',
+    id: 'tesla-model-y', name: 'Tesla Model Y', index: '01 / 07',
     tagline: 'Full Self-Driving Neural Network',
     specs: { range: '533 km', accel: '5.0 s', ai: 'L2 FSD Supervised', compute: '243 TOPS' },
     processor: 'Tesla FSD Hardware 4',
@@ -106,7 +20,7 @@ const CARS = [  {
     featureDesc: ['Active guidance from on-ramp to off-ramp', 'Automatically executes lane changes to maintain speed', 'Navigates complex parking lots to find you autonomously'],
   },
   {
-    id: 'mg-cyberster', name: 'MG Cyberster', index: '07 / 07',
+    id: 'mg-cyberster', name: 'MG Cyberster', index: '02 / 07',
     tagline: 'Born Electric. Born Aggressive.',
     specs: { range: '580 km', accel: '3.2 s', ai: 'L2+ ADAS', compute: 'Mobileye / 8155' },
     processor: 'Snapdragon 8155 Cockpit',
@@ -121,6 +35,86 @@ const CARS = [  {
     features: ['Lane Keep Assist', 'Forward Collision Avoidance', 'Auto Parking'],
     featureDesc: ['Provides steering intervention if drifting is detected', 'Triggers pre-charge of brake calipers and engages AEB', 'Automatically controls steering and speed to park'],
   },
+  {
+    id: 'byd-seal', name: 'BYD Seal', index: '03 / 07',
+    tagline: 'Aero-Dynamic Sports Sedan',
+    specs: { range: '570 km', accel: '3.8 s', ai: 'L2 DiPilot', compute: '100 TOPS' },
+    processor: "BYD DiPilot (God's Eye C)",
+    algorithms: [
+      { name: 'Kalman Filter Tracking',
+        desc: 'Predicts object trajectories frame-to-frame using state-space estimation; maintains consistent ID across occlusions at 0.3ms latency.' },
+      { name: 'Velocity-Aware Planner',
+        desc: 'Gradient-descent motion planner computes smooth acceleration/braking curves by solving a convex optimisation problem at 50Hz.' },
+      { name: 'EyeQ Shadow Mode',
+        desc: 'Runs silently in the background capturing human driving behavior across the fleet, training the network to handle edge cases without active intervention.' }
+    ],
+    features: ['Autonomous Emergency Braking', 'Intelligent Cruise Control', 'Lane Keep Assist'],
+    featureDesc: ['Radar-fusion system halts vehicle to prevent collision', 'Advanced speed and distance management', 'Actively prevents unintended lane departures'],
+  },
+  {
+    id: 'byd-sealion', name: 'BYD Sealion', index: '04 / 07',
+    tagline: 'The Intelligent Electric SUV',
+    specs: { range: '610 km', accel: '4.5 s', ai: 'L2 DiPilot', compute: '254 TOPS' },
+    processor: 'NVIDIA DRIVE Orin-X',
+    algorithms: [
+      { name: 'YOLO v8 Object Detection',
+        desc: 'Detects 80+ object classes in real-time at 60fps with 94% mAP; identifies pedestrians, vehicles, cyclists and traffic signs simultaneously.' },
+      { name: "Bird's Eye View Transformer",
+        desc: 'Converts surround-camera feeds into a unified top-down 3D spatial map using attention-based neural transformer blocks.' },
+      { name: 'Lane Centering Network',
+        desc: 'Deep learning model that calculates precise steering angles to maintain lane positioning even on sharp curves or faded road markings.' }
+    ],
+    features: ['Adaptive Cruise Control', 'Automatic Lane Change', 'Intelligent High-Beam'],
+    featureDesc: ['Maintains safe distance and speed dynamically', 'Executes safe lane changes upon driver indicator input', 'Auto-adjusts headlights based on oncoming traffic'],
+  },
+  {
+    id: 'byd-emax', name: 'BYD eMAX 7', index: '05 / 07',
+    tagline: 'Intelligent Electric Family MPV',
+    specs: { range: '530 km', accel: '8.6 s', ai: 'L2 DiPilot', compute: 'Integrated ADAS' },
+    processor: 'BYD DiPilot System',
+    algorithms: [
+      { name: 'Occupant Safety Classifier',
+        desc: 'Detects the presence and posture of passengers using cabin cameras to optimize airbag deployment and trigger specific safety warnings.' },
+      { name: 'Child Occupant Monitor',
+        desc: 'Interior DMS infrared camera combined with a semi-supervised CNN detects unattended children in the cabin and triggers alerts.' },
+      { name: 'Lane Departure Prevention Network',
+        desc: 'Evaluates lane lines and vehicle trajectory to provide corrective steering torque precisely when unintended drift is detected.' }
+    ],
+    features: ['Predictive Collision Warning', 'Blind Spot Detection', 'Door Open Warning'],
+    featureDesc: ['Alerts driver to potential forward hazards', 'Monitors areas difficult to see via mirrors', 'Alerts occupants if opening a door into traffic is unsafe'],
+  },
+  {
+    id: 'range-rover-velar', name: 'Range Rover Velar', index: '06 / 07',
+    tagline: 'Terrain Intelligence Beyond Limits',
+    specs: { range: '640 km', accel: '5.4 s', ai: 'L2 Steering Assist', compute: 'EVA 2.0 Pivi Pro' },
+    processor: 'Qualcomm Snapdragon',
+    algorithms: [
+      { name: 'Terrain Adaptation AI',
+        desc: 'Analyzes wheel slip and suspension deflection to auto-select and tune terrain profiles dynamically.' },
+      { name: 'ClearSight Ground View',
+        desc: 'Stitches front-bumper cameras with a virtual underbody projection to show a live ground-level view through the bonnet on the infotainment screen.' },
+      { name: 'Traffic Flow Prediction',
+        desc: 'Processes real-time cloud data and local camera vision to predict speed limit changes and upcoming traffic patterns.' }
+    ],
+    features: ['3D Surround Camera', 'Traffic Sign Recognition', 'Adaptive Cruise'],
+    featureDesc: ['360-degree view for maneuvering tight spaces', 'Identifies speed limits and adjusts adaptive limiter', 'Maintains safe distance and centers vehicle in lane'],
+  },
+  {
+    id: 'bmw-x7', name: 'BMW X7', index: '07 / 07',
+    tagline: 'Luxury Intelligence Redefined',
+    specs: { range: '800 km', accel: '4.7 s', ai: 'L2+ CoPilot', compute: '~60 TOPS' },
+    processor: 'Snapdragon Digital Chassis',
+    algorithms: [
+      { name: 'Semantic Lane Parsing',
+        desc: 'Fuses multi-camera vision with high-definition map data to maintain highly accurate lane keeping even at high motorway speeds.' },
+      { name: 'Predictive Route AI',
+        desc: 'Analyses driving history, traffic patterns and calendar data using LSTM networks to suggest optimal routes and pre-condition the cabin.' },
+      { name: 'REM Fleet Mapping',
+        desc: 'Road Experience Management: crowdsources centimetre-precision map updates from fleet vehicles via 4G, keeping maps perpetually fresh.' }
+    ],
+    features: ['Motorway Assistant', 'Parking Assistant Pro', 'Reversing Assistant'],
+    featureDesc: ['Hands-free driving on approved highways up to 130 km/h', 'Automated maneuver assistance and path recording', 'Memorizes the last 50 meters and reverses exactly along that path'],
+  }
 ];
 
 // ─────────────────────────────────────────────────────
