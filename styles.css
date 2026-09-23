@@ -422,19 +422,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-main);
 }
 .sensor-panel.visible { opacity: 1; transform: translateY(0); }
 
-.sensor-panel-title {
-  font-size: 0.65rem; letter-spacing: 3px; color: var(--cyan-bright);
-  text-transform: uppercase; font-family: var(--font-alt);
-  margin-bottom: 12px; padding-bottom: 8px;
-  border-bottom: 1px solid var(--border-cyan);
-  transition: all 0.3s ease;
-  font-weight: 800; /* Bolder */
-}
-.collapsed .sensor-panel-title {
-  border-bottom: none;
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
+/* Removed .sensor-panel-title rules since it now uses .ai-algo-header */
 
 /* Accordion Logic */
 .chevron-icon { transition: transform 0.3s ease; }
@@ -852,13 +840,13 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
   
   /* Hide chevrons and adjust headers */
   .chevron-icon { display: none !important; }
-  .ai-algo-header, .sensor-panel-title {
+  .ai-algo-header {
     margin-bottom: 12px !important; /* Added more space before the features */
     padding-bottom: 6px !important;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     align-items: flex-start;
   }
-  .ai-algo-header-title, .sensor-panel-title { font-size: 0.55rem; }
+  .ai-algo-header-title { font-size: 0.55rem; }
   .ai-processor-badge { display: none; } /* Hide to save space in narrow col */
 
   /* Allow internal scrolling */

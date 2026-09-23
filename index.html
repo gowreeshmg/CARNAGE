@@ -61,7 +61,6 @@
       </p>
       <div class="hero-cta-group">
         <button class="btn-primary" id="exploreBtn">Explore Fleet</button>
-        <button class="btn-ghost">Learn More</button>
       </div>
       <div class="hero-stats">
         <div class="stat"><span class="stat-num" data-target="7">0</span><span class="stat-unit">Cars</span></div>
@@ -150,7 +149,7 @@
 
           <!-- AI Algorithm panel -->
           <div class="ai-algo-panel collapsed" id="aiAlgoPanel">
-            <div class="ai-algo-header" id="aiAlgoHeader" style="cursor: pointer; margin-bottom: 0;">
+            <div class="ai-algo-header" id="aiAlgoHeader" style="cursor: pointer;">
               <div>
                 <span class="ai-algo-header-title">AI FEATURES</span>
                 <span class="ai-processor-badge" id="processorBadge">DiPilot 300</span>
@@ -164,8 +163,10 @@
         <!-- RIGHT -->
         <div class="hud-right">
           <div class="sensor-panel collapsed" id="sensorPanel">
-            <div class="sensor-panel-title" id="sensorPanelTitle" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; margin-bottom: 0; padding-bottom: 0;">
-              <span>AI ALGORITHMS</span>
+            <div class="ai-algo-header" id="sensorPanelTitle" style="cursor: pointer; border-bottom: 1px solid var(--border-cyan);">
+              <div>
+                <span class="ai-algo-header-title" style="color: var(--cyan-bright);">AI ALGORITHMS</span>
+              </div>
               <svg class="chevron-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: var(--cyan-bright);"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
             <div class="sensor-grid" id="sensorGrid"></div>
