@@ -774,7 +774,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: min-content min-content 1fr;
-    padding: 40vh 15px 15px 15px; /* Leave top 40vh for car image */
+    padding: 38vh 15px 15px 15px; /* Leave space for car image, overlapping slightly */
     gap: 8px 10px; /* row, col */
     height: 100vh;
     box-sizing: border-box;
@@ -859,9 +859,9 @@ footer p { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; }
   .car-img-main {
     height: 40vh;
     width: 100%;
-    object-fit: contain; /* Fit the entire width of the car without zooming */
-    object-position: bottom center; /* Anchor just above the text */
-    transform: none;
-    margin-top: 55px; /* Clear navbar */
+    object-fit: cover; /* Fill the top area completely without black space */
+    object-position: center; /* Center the car */
+    transform: scale(1.02); /* Slight scale to hide edges, far less than before */
+    margin-top: 0; /* Touch the very top of the screen */
   }
 }
